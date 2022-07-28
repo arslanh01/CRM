@@ -14,8 +14,8 @@ const stylesFn = ({ disabled = false }) => {
 
   return StyleSheet.create({
     button: {
-      width: 200,
-      height: 30,
+      width: 300,
+      height: 50,
       borderRadius: 10,
       margin: 10,
       backgroundColor: backgroundColor,
@@ -23,6 +23,7 @@ const stylesFn = ({ disabled = false }) => {
       alignItems: "center",
     },
     text: {
+      fontWeight: "bold",
       color: color,
     },
   });

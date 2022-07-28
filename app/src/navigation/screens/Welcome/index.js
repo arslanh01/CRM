@@ -16,13 +16,13 @@ export default function Welcome() {
 
           <Button
             onPress={() => navigate("Add Customer")}
-            text="Add a Customer"
+            text="Create Customer"
             disabled={false}
           />
 
           <Button
-            onPress={() => navigate("Customers")}
-            text="View Customers"
+            onPress={() => navigate("Regions")}
+            text="View Regions"
             disabled={false}
           />
         </View>
