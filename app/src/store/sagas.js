@@ -1,6 +1,6 @@
 import { all } from "redux-saga/effects";
-// import animal from "../features/animal/sagas";
+import customers from "../features/customers/sagas";
 
 export default function* rootSaga() {
-  yield all([animal()]);
+  yield all([customers()]);
 }

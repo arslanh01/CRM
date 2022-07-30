@@ -59,3 +59,7 @@ export const useEditCustomerStatus = () => {
 export const useListCustomers = () => {
   return useSelector((state) => state.customers.list.customers);
 };
+
+export const useListRegions = () => {
+  return useSelector((state) => state.customers.list.regions);
+};

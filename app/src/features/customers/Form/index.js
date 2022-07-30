@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import { useUpdateFields } from "../hooks";
+import { useUpdateFields, useListRegions } from "../hooks";
+import SelectDropdown from "react-native-select-dropdown";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 import {
   PENDING,
   INPROGRESS,
@@ -16,6 +18,7 @@ const Form = ({ handleSubmit, status, customerID }) => {
   const styles = formStyles();
   const { navigate } = useNavigation();
   const { fields, setFormField } = useUpdateFields(customerID);
+  const regions = useListRegions();
 
   const { first_name, last_name, email, mobile, region } = fields;
 
@@ -79,6 +82,36 @@ const Form = ({ handleSubmit, status, customerID }) => {
             padding: 15,
           }}
           onChangeText={(v) => setFormField("mobile", v)}
+        />
+
+        <SelectDropdown
+          data={regions}
+          defaultValue={region || null}
+          onSelect={(selectedItem, index) => {
+            console.log(selectedItem);
+          }}
+          defaultButtonText={"Select Region"}
+          buttonTextAfterSelection={(selectedItem, index) => {
+            return selectedItem.name;
+          }}
+          rowTextForSelection={(item, index) => {
+            return item.name;
+          }}
+          buttonStyle={styles.dropdown1BtnStyle}
+          buttonTextStyle={styles.dropdown1BtnTxtStyle}
+          renderDropdownIcon={(isOpened) => {
+            return (
+              <FontAwesome
+                name={isOpened ? "chevron-up" : "chevron-down"}
+                color={"#444"}
+                size={18}
+              />
+            );
+          }}
+          dropdownIconPosition={"right"}
+          dropdownStyle={styles.dropdown1DropdownStyle}
+          rowStyle={styles.dropdown1RowStyle}
+          rowTextStyle={styles.dropdown1RowTxtStyle}
         />
 
         <Button

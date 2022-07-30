@@ -1,11 +1,11 @@
 import React from "react";
 import { ScrollView, SafeAreaView, Text } from "react-native";
-// import Edit from "../../../features/animal/Edit";
+import Edit from "../../../features/customers/Edit";
 
 const EditScreen = () => (
   <SafeAreaView>
     <ScrollView>
-      <Text>Edit</Text>
+      <Edit />
     </ScrollView>
   </SafeAreaView>
 );

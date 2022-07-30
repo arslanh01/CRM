@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, FlatList } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-// import { useListAnimals } from "../hooks";
+import { useListCustomers } from "../hooks";
 import Row from "./row";
 import Title from "../../../components/Title";
 import Button from "../../../components/Button";
@@ -10,21 +10,21 @@ const List = () => {
   const { navigate } = useNavigation();
   const { params } = useRoute();
   const { regionID } = params;
-  //   const animals = useListAnimals();
+  const customers = useListCustomers();
 
   return (
     <View>
       <Title text={`Customers of ${regionID}`} />
 
-      {/* {animals && animals.length > 0 ? (
+      {customers && customers.length > 0 ? (
         <FlatList
-          data={animals || []}
+          data={customers || []}
           renderItem={(props) => <Row {...props} />}
           keyExtractor={(item) => item.id}
         />
       ) : (
         <>
-          <Text>{"No animals yet!"}</Text>
+          <Text>{"No customers yet!"}</Text>
           <Button
             text="Add Animal"
             onPress={() => {
@@ -33,7 +33,7 @@ const List = () => {
             disabled={false}
           />
         </>
-      )} */}
+      )}
     </View>
   );
 };
