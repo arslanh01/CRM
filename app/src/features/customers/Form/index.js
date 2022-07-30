@@ -12,47 +12,73 @@ import {
 import Button from "../../../components/Button";
 import formStyles from "./styles";
 
-const Form = ({ handleSubmit, status, animalID }) => {
+const Form = ({ handleSubmit, status, customerID }) => {
   const styles = formStyles();
   const { navigate } = useNavigation();
-  const { fields, setFormField } = useUpdateFields(animalID);
+  const { fields, setFormField } = useUpdateFields(customerID);
 
-  const { common_name, scientific_name } = fields;
+  const { first_name, last_name, email, mobile, region } = fields;
 
   const onSubmit = () => {
     handleSubmit();
-    navigate("Animals");
+    navigate("Customers");
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.form}>
         <TextInput
-          key={"common_name"}
-          placeholder={common_name || "Common Name"}
-          value={common_name || ""}
+          key={"first_name"}
+          placeholder={first_name || "First Name"}
+          value={first_name || ""}
           style={{
             borderWidth: 1,
             borderColor: "black",
             borderRadius: 4,
             padding: 15,
           }}
-          onChangeText={(v) => setFormField("common_name", v)}
+          onChangeText={(v) => setFormField("first_name", v)}
         />
 
         <View style={{ height: 15, width: "100%" }}></View>
 
         <TextInput
-          key={"scientific_name"}
-          placeholder={scientific_name || "Scientific Name"}
-          value={scientific_name || ""}
+          key={"last_name"}
+          placeholder={last_name || "Last Name"}
+          value={last_name || ""}
           style={{
             borderWidth: 1,
             borderColor: "black",
             borderRadius: 4,
             padding: 15,
           }}
-          onChangeText={(v) => setFormField("scientific_name", v)}
+          onChangeText={(v) => setFormField("last_name", v)}
+        />
+
+        <TextInput
+          key={"email"}
+          placeholder={email || "Email Address"}
+          value={email || ""}
+          style={{
+            borderWidth: 1,
+            borderColor: "black",
+            borderRadius: 4,
+            padding: 15,
+          }}
+          onChangeText={(v) => setFormField("email", v)}
+        />
+
+        <TextInput
+          key={"mobile"}
+          placeholder={mobile || "Mobile Number"}
+          value={mobile || ""}
+          style={{
+            borderWidth: 1,
+            borderColor: "black",
+            borderRadius: 4,
+            padding: 15,
+          }}
+          onChangeText={(v) => setFormField("mobile", v)}
         />
 
         <Button
