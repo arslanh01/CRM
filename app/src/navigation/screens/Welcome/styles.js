@@ -3,7 +3,7 @@ const welcomeStyles = () => {
     container: {
       backgroundColor: "#fff",
       alignItems: "center",
-      height: "100vh",
+      height: "100%",
       padding: 20,
     },
   };

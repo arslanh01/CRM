@@ -4,9 +4,7 @@ import List from "../../../features/customers/List";
 
 const ListCustomers = () => (
   <SafeAreaView>
-    <ScrollView>
-      <List />
-    </ScrollView>
+    <List />
   </SafeAreaView>
 );
 

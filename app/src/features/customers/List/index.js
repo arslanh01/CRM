@@ -1,13 +1,15 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, StyleSheet } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import { useListCustomers } from "../hooks";
 import Row from "./row";
 import Title from "../../../components/Title";
 import Button from "../../../components/Button";
+import listStyles from "./styles";
 
 const List = () => {
+  const styles = StyleSheet.create(listStyles());
   const { navigate } = useNavigation();
   const { params } = useRoute();
   const { regionID } = params;
@@ -17,7 +19,7 @@ const List = () => {
   const customers = useListCustomers(regionID);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Title text={`Customers of ${region.name}`} />
 
       {customers && customers.length > 0 ? (
@@ -30,9 +32,9 @@ const List = () => {
         <>
           <Text>{"No customers yet!"}</Text>
           <Button
-            text="Add Animal"
+            text="Add One"
             onPress={() => {
-              navigate("Add Animal");
+              navigate("Add Customer");
             }}
             disabled={false}
           />

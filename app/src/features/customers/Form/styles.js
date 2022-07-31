@@ -4,12 +4,12 @@ const styles = () => {
       margin: "5%",
     },
     form: {
-      height: "100vh",
+      height: "100%",
       width: "100%",
     },
     dropdown1BtnStyle: {
       width: "auto",
-      height: 20,
+      height: 50,
       backgroundColor: "#FFF",
       borderRadius: 8,
       borderWidth: 1,

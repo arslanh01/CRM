@@ -26,12 +26,13 @@ const Form = ({ handleSubmit, status, customerID }) => {
 
   const onSubmit = () => {
     handleSubmit();
-    navigate("Customers", { regionID: regionID });
+    navigate("Welcome");
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.form}>
+        <Text>First Name:</Text>
         <TextInput
           key={"first_name"}
           placeholder={first_name || "First Name"}
@@ -47,6 +48,8 @@ const Form = ({ handleSubmit, status, customerID }) => {
 
         <View style={{ height: 15, width: "100%" }}></View>
 
+        <Text>Last Name:</Text>
+
         <TextInput
           key={"last_name"}
           placeholder={last_name || "Last Name"}
@@ -60,6 +63,8 @@ const Form = ({ handleSubmit, status, customerID }) => {
           onChangeText={(v) => setFormField("last_name", v)}
         />
 
+        <View style={{ height: 15, width: "100%" }}></View>
+        <Text>Email Address::</Text>
         <TextInput
           key={"email"}
           placeholder={email || "Email Address"}
@@ -73,6 +78,8 @@ const Form = ({ handleSubmit, status, customerID }) => {
           onChangeText={(v) => setFormField("email", v)}
         />
 
+        <View style={{ height: 15, width: "100%" }}></View>
+        <Text>Mobile Number:</Text>
         <TextInput
           key={"mobile"}
           placeholder={mobile || "Mobile Number"}
@@ -86,6 +93,8 @@ const Form = ({ handleSubmit, status, customerID }) => {
           onChangeText={(v) => setFormField("mobile", v)}
         />
 
+        <View style={{ height: 15, width: "100%" }}></View>
+        <Text>Region:</Text>
         <SelectDropdown
           data={regions}
           defaultValue={region || ""}
@@ -120,7 +129,14 @@ const Form = ({ handleSubmit, status, customerID }) => {
         <Button
           onPress={onSubmit}
           text="Submit"
-          disabled={status !== PENDING && status !== INPROGRESS}
+          disabled={
+            first_name === null ||
+            last_name === null ||
+            email === null ||
+            mobile === null ||
+            region === null ||
+            (status !== PENDING && status !== INPROGRESS)
+          }
         />
       </View>
     </View>
