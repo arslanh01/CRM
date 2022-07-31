@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, FlatList } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useSelector } from "react-redux";
 import { useListCustomers } from "../hooks";
 import Row from "./row";
 import Title from "../../../components/Title";
@@ -10,11 +11,14 @@ const List = () => {
   const { navigate } = useNavigation();
   const { params } = useRoute();
   const { regionID } = params;
-  const customers = useListCustomers();
+  const region = useSelector((state) =>
+    state.customers.list.regions.find((r) => r.id === regionID)
+  );
+  const customers = useListCustomers(regionID);
 
   return (
     <View>
-      <Title text={`Customers of ${regionID}`} />
+      <Title text={`Customers of ${region.name}`} />
 
       {customers && customers.length > 0 ? (
         <FlatList
