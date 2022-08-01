@@ -94,6 +94,12 @@ const reducers = {
 
     state.form.fields = fields;
   },
+  loadResult: (state, { payload }) => {
+    state.list.customers = payload;
+  },
+  loadCustomers: (state) => {
+    state.list.status = REQUESTING;
+  },
 };
 
 const slice = createSlice({
@@ -112,6 +118,8 @@ export const {
   editCustomerError,
   editCustomerStatus,
   setFormField,
+  loadResult,
+  loadCustomers,
 } = slice.actions;
 
 export default slice.reducer;

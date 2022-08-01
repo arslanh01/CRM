@@ -57,6 +57,10 @@ export const useEditCustomerStatus = () => {
 };
 
 export const useListCustomers = (regionID) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(actions.loadCustomers());
+  }, [dispatch]);
   const customers = useSelector((state) => state.customers.list.customers);
   const regions = useSelector((state) => state.customers.list.regions);
   const region = regions.find((r) => r.id === regionID);

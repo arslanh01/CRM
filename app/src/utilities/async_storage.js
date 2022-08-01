@@ -12,6 +12,6 @@ export const get = async (key) => {
     const raw = await AsyncStorage.getItem(key);
     return JSON.parse(raw);
   } catch (e) {
-    return { error: "Failed to save to asyncStorage" };
+    return { error: "Failed to load from asyncStorage" };
   }
 };
