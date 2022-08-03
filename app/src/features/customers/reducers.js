@@ -61,7 +61,7 @@ const reducers = {
     state.edit.status = REQUESTING;
   },
   setForm: (state, { payload }) => {
-    const customer = state.list.customers.find((a) => (a.id = payload));
+    const customer = state.list.customers.find((a) => a.id === payload);
 
     if (customer) {
       state.form.fields = customer;
