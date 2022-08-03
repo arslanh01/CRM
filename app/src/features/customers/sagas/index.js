@@ -4,5 +4,5 @@ import { watchEditCustomer } from "./edit";
 import { watchLoadCustomers } from "./load";
 
 export default function* customer() {
-  yield all([watchCreateCustomer(), watchEditCustomer()]);
+  yield all([watchCreateCustomer(), watchEditCustomer(), watchLoadCustomers()]);
 }

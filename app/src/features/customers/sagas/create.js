@@ -22,7 +22,7 @@ export function* takeCreateCustomer() {
 
     const result = [customer, ...customers];
 
-    // yield set("CUSTOMERS_KEY", result);
+    yield set("CUSTOMERS_KEY", result);
 
     yield put(actions.createCustomerResult(result));
   } catch (error) {

@@ -17,6 +17,7 @@ const List = () => {
     state.customers.list.regions.find((r) => r.id === regionID)
   );
   const customers = useListCustomers(regionID);
+  console.log("in list", customers);
 
   return (
     <View style={styles.container}>
