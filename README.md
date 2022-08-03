@@ -34,7 +34,7 @@ To run this app in a browser, just hit w on your keyboard after running the deve
 To run this app on a mobile device:
 
 - Download **Expo Go** from Play store if you're on Android.
-- Scan the provided QR code throught the **Expo Go** (on Android) or Camera app (on Apple).
+- Scan the provided QR code through the **Expo Go** (on Android) or Camera app (on Apple).
 
 ## Features
 
