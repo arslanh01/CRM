@@ -69,13 +69,16 @@ const reducers = {
       state.error.message = `could not find customer with id: ${payload}`;
     }
   },
+  resetForm: (state) => {
+    state.form.fields = initialState.form.fields;
+  },
   editCustomerResult: (state, { payload }) => {
     state.edit.status = SUCCESS;
     state.list.customers = payload;
     state.form.fields = initialState.form.fields;
     state.edit = initialState.edit;
   },
-  editCustomerError: (state) => {
+  editCustomerError: (state, { payload }) => {
     state.edit.status = ERROR;
     state.error.message = payload;
     state.form.fields = initialState.form.fields;
@@ -113,6 +116,7 @@ export const {
   createCustomerResult,
   createCustomerError,
   setForm,
+  resetForm,
   editCustomer,
   editCustomerResult,
   editCustomerError,

@@ -15,14 +15,14 @@ import Button from "../../../components/Button";
 import formStyles from "./styles";
 
 const Form = ({ handleSubmit, status, customerID }) => {
-  const [regionID, setRegionID] = useState(1);
   const styles = formStyles();
   const { navigate } = useNavigation();
   const { fields, setFormField } = useUpdateFields(customerID);
   const regions = useListRegions();
-  console.log(fields);
 
   const { first_name, last_name, email, mobile, region } = fields;
+
+  console.log("in form", customerID);
 
   const onSubmit = () => {
     handleSubmit();
@@ -64,7 +64,7 @@ const Form = ({ handleSubmit, status, customerID }) => {
         />
 
         <View style={{ height: 15, width: "100%" }}></View>
-        <Text>Email Address::</Text>
+        <Text>Email Address:</Text>
         <TextInput
           key={"email"}
           placeholder={email || "Email Address"}
@@ -100,7 +100,6 @@ const Form = ({ handleSubmit, status, customerID }) => {
           defaultValue={region || ""}
           onSelect={(selectedItem, index) => {
             setFormField("region", selectedItem.name);
-            setRegionID(selectedItem.id);
           }}
           defaultButtonText={region || "Select Region"}
           buttonTextAfterSelection={(selectedItem, index) => {

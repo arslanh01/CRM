@@ -6,6 +6,7 @@ import Form from "../Form";
 const Edit = () => {
   const { params } = useRoute();
   const { customerID } = params;
+  console.log("in edit feature", customerID);
   const { status, onSubmit } = useEditCustomer(customerID);
 
   return (

@@ -7,10 +7,13 @@ export const useUpdateFields = (customerID = null) => {
   const dispatch = useDispatch();
   const status = useSelector((state) => state.customers.edit.status);
   const fields = useSelector((state) => state.customers.form.fields);
+  console.log("in hook", customerID, status, fields);
 
   useEffect(() => {
     if (customerID && status === PENDING) {
       dispatch(actions.setForm(customerID));
+    } else {
+      dispatch(actions.resetForm());
     }
   }, [customerID, status]);
 

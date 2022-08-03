@@ -1,4 +1,5 @@
 import { all, put, select, takeLatest, delay } from "redux-saga/effects";
+import { set } from "../../../utilities/async_storage";
 import * as actions from "../reducers";
 
 export function* watchEditCustomer() {
@@ -20,6 +21,8 @@ export function* takeEditCustomer(action) {
 
     // pretend call to API
     yield delay(500);
+
+    // yield set("CUSTOMERS_KEY", result);
 
     yield put(actions.editCustomerResult(result));
   } catch (error) {

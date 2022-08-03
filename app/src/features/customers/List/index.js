@@ -23,11 +23,9 @@ const List = () => {
       <Title text={`Customers of ${region.name}`} />
 
       {customers && customers.length > 0 ? (
-        <FlatList
-          data={customers || []}
-          renderItem={(props) => <Row {...props} />}
-          keyExtractor={(item) => item.id}
-        />
+        customers.map((customer) => (
+          <Row key={customer.id} customer={customer} />
+        ))
       ) : (
         <>
           <Text>{"No customers yet!"}</Text>
