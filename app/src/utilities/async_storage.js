@@ -16,7 +16,7 @@ export const get = async (key) => {
   console.log("LOADING FROM ASYNCSTORAGE ::: ", key);
   try {
     const raw = await AsyncStorage.getItem(key);
-    return JSON.parse(raw);
+    return raw ? JSON.parse(raw) : [];
   } catch (e) {
     return { error: "Failed to load from asyncStorage" };
   }
