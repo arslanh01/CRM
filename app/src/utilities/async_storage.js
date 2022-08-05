@@ -21,3 +21,7 @@ export const get = async (key) => {
     return { error: "Failed to load from asyncStorage" };
   }
 };
+
+export const clear = async () => {
+  return await AsyncStorage.clear();
+};

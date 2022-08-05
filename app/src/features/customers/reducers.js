@@ -103,6 +103,14 @@ const reducers = {
   loadCustomers: (state) => {
     state.list.status = REQUESTING;
   },
+  clearCustomers: (state) => {
+    console.log("Clear Customer Called");
+  },
+  clearCustomersResult: (state) => {
+    console.log("Clear CustomersResult Called");
+
+    state.list.customers = initialState.list.customers;
+  },
 };
 
 const slice = createSlice({
@@ -124,6 +132,8 @@ export const {
   setFormField,
   loadResult,
   loadCustomers,
+  clearCustomers,
+  clearCustomersResult,
 } = slice.actions;
 
 export default slice.reducer;
